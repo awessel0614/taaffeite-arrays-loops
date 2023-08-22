@@ -95,5 +95,43 @@ for(let temp of temperatureValues) {
     console.log(temp);
 }
 
+// Data you are provided: a list of all item values (cost of items)
+// Expected output: total value of all items
+//the fundraising goal has been achieved
+
+//What variables and logic would you need to figure that out?
+
+//you would need a const with the fundraising goal
+//Well, you would need an array with a list of the item values. You would then need
+//a formula that adds the values of the items together. 
+//You would need a console.log that displays the total value, 
+//you would also need a line that compares the total value to the fundraising goal
+//to see if they do indeed match... an if/else statement where if they hit the goal,
+//then it logs that the goal has been achieved! if not, it hasn't
+
+//EXAMPLE:
+const itemList = [100, 500, 2000, 50, 1000, 750, 12000]; //array
+const fundraisingGoal = 20000; //number
+let currentTotal = 0; //number
+let goalReached = false; //Boolean
+// Loop to add all item costs to the total
+for(let item of itemList) {
+    console.log('for loop', item, currentTotal);
+    //add each item value to the currentTotal
+    currentTotal += item;
+}
+console.log('Final total: ', currentTotal);
+if (currentTotal >= fundraisingGoal) {
+    //goal has been reached!!
+    goalReached = true;
+}
+console.log('goalReached', goalReached);
 
 
+//Display on the webpage whether goal has been reached
+let outputDiv = document.querySelector('#output');
+if(goalReached) {
+    outputDiv.innerHTML = 'Goal reached!!!';
+} else {
+    outputDiv.innerHTML = 'Goal not yet reached. Remaining amount: ' + (fundraisingGoal - currentTotal);
+}
